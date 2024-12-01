@@ -1,44 +1,5 @@
 use serde::Serialize;
-                // use super::line_style::LineStyle;
 
-// #[derive(Serialize, Clone, Debug)]
-#[derive(Serialize, Clone, Debug)]
-// #[serde(rename_all = "camelCase")]
-pub struct Edge {
-    pub source: NumberOrString,
-    pub target: NumberOrString,
-    // #[serde(skip_serializing_if = "Option::is_none")]
-    // line_style: Option<LineStyle>
-}
-impl Edge {
-    pub fn new(source: NumberOrString, target: NumberOrString) -> Self {
-        Self { 
-            source, 
-            target, 
-            // line_style: None 
-        }
-    }
-    // pub fn set_line_style(&mut self, line_style: LineStyle) {
-    //     self.line_style = Some(line_style);
-    // }
-}
-
-
-#[derive(Clone, Debug)]
-pub enum NumberOrString {
-    Number(Number),
-    String(String)
-}
-impl Serialize for NumberOrString {
-    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
-    where
-        S: serde::Serializer {
-        match self {
-            NumberOrString::Number(number) => number.serialize(serializer),
-            NumberOrString::String(string) => string.serialize(serializer),
-        }
-    }
-}
 #[derive(Clone, Debug)]
 pub enum Number {
     F32(f32),
