@@ -7,7 +7,7 @@ use end_label::EndLabel;
 use builder::LineBuilder;
 use serde::Serialize;
 
-#[derive(Serialize, Clone, Default)]
+#[derive(Serialize, Clone, Default, Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct Line {
     #[serde(rename = "type")]

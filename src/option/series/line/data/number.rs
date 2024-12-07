@@ -1,6 +1,6 @@
 use serde::Serialize;
 
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub enum Number {
     F32(f32),
     F64(f64),

@@ -1,4 +1,4 @@
-mod number;
+pub mod number;
 
 use number::Number;
 use serde::Serialize;
