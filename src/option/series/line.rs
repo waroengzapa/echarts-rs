@@ -7,7 +7,7 @@ use end_label::EndLabel;
 use builder::LineBuilder;
 use serde::Serialize;
 
-#[derive(Serialize, Clone, Debug, Default)]
+#[derive(Serialize, Clone, Default)]
 #[serde(rename_all = "camelCase")]
 pub struct Line {
     #[serde(rename = "type")]
@@ -24,9 +24,6 @@ impl Line {
     pub fn new(data: Vec<Data>) -> Self {
         Self { 
             type_: "line", 
-            // end_label: None,
-            // name: None,
-            // y_axis_index: None,
             data,
             ..Self::default()
         }

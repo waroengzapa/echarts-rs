@@ -9,7 +9,7 @@ use graph::{edge::Edge, node::Node, Graph};
 use line::Line;
 use serde::Serialize;
 
-#[derive(Clone, Debug)]
+#[derive(Clone)]
 pub enum Series {
     Bar(Bar),
     Candlestick(Candlestick),

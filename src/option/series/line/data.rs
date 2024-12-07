@@ -3,7 +3,7 @@ pub mod number;
 use number::Number;
 use serde::Serialize;
 
-#[derive(Serialize, Clone, Debug)]
+#[derive(Serialize, Clone)]
 pub struct Data {
     value: (String, Number)
 }
