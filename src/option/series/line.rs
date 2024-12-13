@@ -31,4 +31,10 @@ impl Line {
     pub fn builder() -> LineBuilder {
         LineBuilder::default()
     }
+    pub fn set_name(&mut self, name: &str) {
+        self.name = Some(name.to_owned())
+    }
+    pub fn set_y_axis_index(&mut self, y_axis_index: usize) {
+        self.y_axis_index = Some(y_axis_index)
+    }
 }

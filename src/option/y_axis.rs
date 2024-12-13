@@ -1,6 +1,6 @@
 mod builder;
 pub mod position;
-mod type_;
+pub mod type_;
 pub mod axis_line;
 pub mod axis_label;
 

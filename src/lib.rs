@@ -1,8 +1,10 @@
 pub mod option;
 pub mod theme;
 
+pub extern crate handlebars;
+
 use std::{fs::File, path::Path};
-use handlebars::Handlebars;
+use handlebars::{Handlebars, RenderError};
 use serde::Serialize;
 use serde_json::json;
 use theme::Theme;
@@ -29,7 +31,7 @@ impl EChart {
     //         option: serde_json::to_string(&option).unwrap(),
     //     }
     // }
-    pub fn render_template_to_write(&self, path: &Path) -> Result<(), handlebars::RenderError> {
+    pub fn render_template_to_write(&self, path: &Path) -> Result<(), RenderError> {
         let sad = EChartHandlebars {
             id: self.id,
             width: self.width,
@@ -41,7 +43,7 @@ impl EChart {
         Handlebars::new().render_template_to_write(include_str!("template/template.hbs"), &json!(&sad), File::create(path).unwrap())
         // Handlebars::new().render_templ(include_str!("template/template.hbs"), &json!(&sad), File::create(path).unwrap())
     }
-    pub fn render_template(&self) -> Result<String, handlebars::RenderError> {
+    pub fn render_template(&self) -> Result<String, RenderError> {
         let sad = EChartHandlebars {
             id: self.id,
             width: self.width,
