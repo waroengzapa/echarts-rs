@@ -5,7 +5,7 @@ pub struct LegendBuilder {
     top_text: Option<TopText>,
     data: Option<Vec<String>>
 }
-impl <'a>LegendBuilder {
+impl LegendBuilder {
     pub fn build(self) -> Legend {
         Legend {
             top_text: self.top_text,
@@ -16,7 +16,7 @@ impl <'a>LegendBuilder {
         self.top_text = Some(top_text);
         self
     }
-    pub fn data(mut self, data: Vec<&'a str>) -> Self {
+    pub fn data(mut self, data: Vec<&str>) -> Self {
         self.data = Some(data.iter().map(|item| item.to_string()).collect());
         self
     }

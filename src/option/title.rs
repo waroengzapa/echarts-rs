@@ -5,7 +5,7 @@ use left_text::LeftText;
 use serde::Serialize;
 use builder::TitleBuilder;
 
-#[derive(Serialize, Default)]
+#[derive(Serialize, Default, Clone, Debug)]
 pub struct Title {
     text: String,
     #[serde(skip_serializing_if = "Option::is_none")]
@@ -23,5 +23,13 @@ impl Title {
     }
     pub fn builder() -> TitleBuilder {
         TitleBuilder::default()
+    }
+    pub fn set_text(&mut self, text: &str) {
+        self.text = text.to_string();
+        // self
+    }
+    pub fn set_subtext(&mut self, text: &str) {
+        self.subtext = Some(text.to_string());
+        // self
     }
 }

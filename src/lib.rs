@@ -1,12 +1,12 @@
 pub mod option;
 pub mod theme;
-
 pub extern crate handlebars;
 
-use std::{fs::File, path::Path};
 use handlebars::{Handlebars, RenderError};
 use serde::Serialize;
 use serde_json::json;
+use std::fs::File;
+use std::path::Path;
 use theme::Theme;
 
 #[derive(Serialize)]
@@ -40,7 +40,7 @@ impl EChart {
             // option: serde_json::to_string_pretty(&self.option).unwrap()
             option: serde_json::to_string(&self.option).unwrap()
         };
-        Handlebars::new().render_template_to_write(include_str!("template/template.hbs"), &json!(&sad), File::create(path).unwrap())
+        Handlebars::new().render_template_to_write(include_str!("assets/template.hbs"), &json!(&sad), File::create(path).unwrap())
         // Handlebars::new().render_templ(include_str!("template/template.hbs"), &json!(&sad), File::create(path).unwrap())
     }
     pub fn render_template(&self) -> Result<String, RenderError> {
@@ -52,8 +52,7 @@ impl EChart {
             // option: serde_json::to_string_pretty(&self.option).unwrap()
             option: serde_json::to_string(&self.option).unwrap()
         };
-        Handlebars::new().render_template(include_str!("template/template.hbs"), &json!(&sad))
-        // Handlebars::new().render_templ(include_str!("template/template.hbs"), &json!(&sad), File::create(path).unwrap())
+        Handlebars::new().render_template(include_str!("assets/template.hbs"), &json!(&sad))
     }
 }
 

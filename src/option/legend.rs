@@ -13,8 +13,8 @@ pub struct Legend {
     #[serde(skip_serializing_if = "Option::is_none")]
     data: Option<Vec<String>>
 }
-impl <'a>Legend {
-    pub fn new(data: Vec<&'a str>) -> Self {
+impl Legend {
+    pub fn new(data: Vec<&str>) -> Self {
         Self {
             data: Some(data.iter().map(|item| item.to_string()).collect()),
             ..Self::default()
